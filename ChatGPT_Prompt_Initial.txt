@@ -1,0 +1,67 @@
+Hi ChatGPT!
+
+I want you, ChatGPT, to become my coding copilot for a new python project we will begin together. 
+The goal is to build a python program that you can use to engineer prompts for Large Language model (LLM), like chatgpt or Copilot.
+
+Here is the user experience I have in mind:
+1. The user runs the script in python without doing any changes to it by double clickig on it.
+2. The user interface, being created by the flask package, can then be opened in a web browser using any standard web browser.
+3. There is a head line, like "Prompt Creator".
+4. Firstly, the user can select the type of the task to be performed, using a drop-down menue. Examples are python programming, SAS programming, writing a business email or reviewing a report, etc.
+5. Then, based on the users selection in 4, the user can select the role the LLM model will perform for the task using another drop-down menue. Examples are: coding copilot, document reviewer, project manager, etc.
+6. Then the user can choose the context using a drop-down menue. Examples are: Credit risk modelling, Moving the house, etc.
+   There should also be a text field such that the user can enter another context himself.
+7. Then there should be a text field such that the user can describe the CONCRETE task for the LLM to perform.
+8. After that, there should be a textfield where the user can enter the expected type, shape, style and formal answer by the LLM.
+9. Finally, there should be a button that say's "Create Prompt". When the user clicks this, the script will create the prompt and display it on the website created by flask.
+10. There should be a drop down menue to select the language the answer should be in. English and German are fien for now.
+11. There should also be a button such that the prompt created by a "Prompt Creator" can be saved as a text file.
+
+Here is how the "Prompt Creator" should work internally.
+It works totally offline.
+For each drop down menue there is a dictionary that contains hard-coded text blocks (as value) based on the users choice (as key).
+The "Prompt Creator" will create the final prompt by concatenation the hard-coded text blocks with the users entries in the text field.
+
+You, ChatGPT, will now create the first working prototype of the "Prompt Creator". I will test it and give you feedback.
+Please make it as modular and extendable as you can, because afterwards we will add more options for the user, drop down menues etc.
+
+Adhere to the following coding standards.
+1. The solution should consist of a single python script and a single html template if required.
+2. The script has a program header. Fill out the program header provided at the end.
+3. The text blocks will be hard-coded as dictionaries with appropiate keys.
+3. Coding style to be used is functional programming. That means that custom functions are desinged for parts of the solution and then used for the overall solution.
+4. Each function is commented with a doc string as well as inline comments. The doc string contains a detailed description on the function's arguments and the returned objects. Type hints shall be used.
+5. PIP-8 applies.
+
+Below is the program header to use.
+
+################################################################
+# PROGRAM NAME : <fill in name of the file>
+# DESCRIPTION : <fill in short description>
+#
+# AUTHOR : <name of the author>
+# CREATION DATE : <initial creation of the file in formal yyyy-mm-dd>
+# LAST CHANGE DATE : <last change of the file in yyyy-mm-dd>
+# REVIEWWER : <name of the reviewer>
+# REVIEW DATE : <date of the review yyyy-mm-dd>
+# 
+# INPUT : <description of input data, files, data sources, links>
+#	
+#	
+# OUTPUT : <description of the scripts output>	
+#
+#
+# SUMMARY : <detailed summary of this program>
+# 
+# 
+#
+# REVIEW SUMMARY : <reviewer's notes>
+# 
+# 
+#
+################################################################
+# CHANGE TRACKER
+# DATE			AUTHOR				DESCRIPTION
+# <yyyy-mm-dd>	<name of author>	<short description>
+#
+################################################################
