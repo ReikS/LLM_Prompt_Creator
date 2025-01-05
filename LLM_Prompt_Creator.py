@@ -49,9 +49,10 @@
 #    - Navigate to `http://127.0.0.1:5000/` to access the Prompt Creator interface.
 #
 # 2. **Generate a Prompt:**
+#    - **Select Context:** Choose a predefined context from the drop-down menu or leave it as "--None--".
 #    - **Select Task Type:** Choose the type of task you want the LLM to perform from the drop-down menu (e.g., Python Programming, Writing a Business Email).
-#    - **Select Role:** Choose the role you want the LLM to assume (e.g., Python Code Assistant, Project Manager).
-#    - **Select Context:** Choose a predefined context from the drop-down menu or enter a custom context in the provided text field.
+#    - **Select Role:** Once a task type is selected, choose the appropriate role from the roles dropdown. This dropdown is initially disabled until a task type is chosen.
+#    - **Or Enter Custom Context:** Optionally, enter a custom context in the provided text field.
 #    - **Describe the Task:** Provide a detailed description of the task you want the LLM to perform in the textarea.
 #    - **Expected Output:** Specify the expected type, shape, style, and formality of the LLM's response in the textarea.
 #    - **Select Language:** Choose the language (English or German) in which you want the LLM's response.
@@ -268,32 +269,44 @@ TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <title>Prompt Creator</title>
+    <script>
+        function enableRoleDropdown() {
+            var taskType = document.getElementById('task_type').value;
+            var roleDropdown = document.getElementById('role');
+            if (taskType) {
+                roleDropdown.disabled = false;
+            } else {
+                roleDropdown.disabled = true;
+            }
+        }
+        window.onload = function() {
+            enableRoleDropdown();
+        };
+    </script>
 </head>
 <body>
     <h1>Prompt Creator</h1>
     <form method="post">
+        <label for="context">Select Context:</label>
+        <select name="context" id="context">
+            <option value="">--None--</option>
+            {% for key, value in contexts.items() %}
+            <option value="{{ key }}">{{ value }}</option>
+            {% endfor %}
+        </select><br><br>
+
         <label for="task_type">Select Task Type:</label>
-        <select name="task_type" id="task_type" onchange="this.form.submit()">
+        <select name="task_type" id="task_type" onchange="this.form.submit(); enableRoleDropdown();">
             <option value="">--Select Task Type--</option>
             {% for key, value in task_types.items() %}
             <option value="{{ key }}" {% if request.form.get('task_type') == key %}selected{% endif %}>{{ value }}</option>
             {% endfor %}
         </select><br><br>
 
-        {% if roles %}
         <label for="role">Select Role:</label>
-        <select name="role" id="role">
+        <select name="role" id="role" {% if not roles %}disabled{% endif %}>
             <option value="">--Select Role--</option>
             {% for key, value in roles.items() %}
-            <option value="{{ key }}">{{ value }}</option>
-            {% endfor %}
-        </select><br><br>
-        {% endif %}
-
-        <label for="context">Select Context:</label>
-        <select name="context" id="context">
-            <option value="">--None--</option>
-            {% for key, value in contexts.items() %}
             <option value="{{ key }}">{{ value }}</option>
             {% endfor %}
         </select><br><br>
