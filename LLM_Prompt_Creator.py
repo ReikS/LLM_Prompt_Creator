@@ -1,36 +1,25 @@
-################################################################
-# PROGRAM NAME : LLM_Prompt_Creator.py
-# DESCRIPTION : A Flask web application for generating prompts for LLMs based on user inputs.
-#
-# AUTHOR : ChatGPT Assistant
-# CREATION DATE : 2024-04-29
-# LAST CHANGE DATE : 2024-04-30
-# REVIEWWER : N/A
-# REVIEW DATE : N/A
-# 
-# INPUT : User selections (task type, role, context, etc.) via a web form.
-#
-# OUTPUT : Generated prompt displayed on the web page and optionally saved as a text file.
-#
-# SUMMARY : This script creates a web interface using Flask where users can select 
-#           context, task types, roles, and other parameters to generate a 
-#           customized prompt for an LLM. The task dictionary stores detailed 
-#           descriptions internally, but only a short, capitalized task name 
-#           (derived from the key) is shown in the user interface. The output 
-#           generated prompt is now formatted with line breaks and wrapped text 
-#           for better readability.
-#
-# REVIEW SUMMARY : N/A
-#
-################################################################
-# CHANGE TRACKER
-# DATE			AUTHOR				DESCRIPTION
-# 2024-04-29	ChatGPT Assistant	Recreated entire script to incorporate 
-#								 refined task descriptions and display 
-#								 only capitalized keys in the UI.
-# 2024-04-30	ChatGPT Assistant	Formatted the generated prompt with 
-#                                paragraphs and text wrapping for better readability.
-################################################################
+"""
+PROGRAM NAME    : LLM_Prompt_Creator.py
+DESCRIPTION     : A Flask web application for generating prompts for LLMs 
+                  based on user inputs.
+
+AUTHOR          : ReikS
+CREATION DATE   : 2024-04-29
+LAST CHANGE     : 2024-04-30
+
+INPUT           : User selections (task type, role, context, etc.) via a web form.
+OUTPUT          : Generated prompt displayed on the web page and optionally 
+                  saved as a text file. Web server runs on http://127.0.0.1:5000
+
+SUMMARY         : This script creates a web interface using Flask where users 
+                  can select context, task types, roles, and other parameters 
+                  to generate a customized prompt for an LLM. 
+                  Internally, the task dictionary stores detailed descriptions, 
+                  while only short capitalized task names (keys) appear in the UI.
+                  The output prompt is formatted with line breaks and wrapped 
+                  text for readability.
+"""
+
 
 from flask import Flask, render_template_string, request, send_file
 from typing import Dict, Any
@@ -696,6 +685,15 @@ def generate_prompt(data: Dict[str, Any]) -> str:
     if context:
         prompt_parts.append(f"Context: {context}")
 
+    # General requirements
+    prompt_parts.append("""
+    Your task is not restricted to giving advice only. 
+    You will make a serious attempt to carry out the task given by the user. 
+    In addition to the result, you will assess how far you were able to accomplish 
+    the task and point out any missing parts or limitations. 
+    After that, you may ask follow-up questions to the user that might help you 
+    to provide an even more useful response.""")
+    
     # Paragraph 3: Task Description
     task_description = data.get('task_description', 'Provide details about the task.')
     prompt_parts.append(f"Task: {task_description}")
@@ -787,66 +785,89 @@ TEMPLATE = """
 </head>
 <body>
     <h1>Prompt Creator</h1>
+
+    <!-- How to Use -->
+    <section style="max-width: 800px; margin-bottom: 30px;">
+        <h3>How to Use</h3>
+        <p>
+            This tool helps you generate structured prompts for large language models (LLMs) like Copilot or Le Chat.
+            The mechanic is very simple, the prompt is assembled from the users input and pre-defined textblocks.
+            The focus is mainly on coding for the development of statistical models. 
+            To get the best result, follow these steps:
+        </p>
+        <ol>
+            <li><strong>Select Task Type:</strong> Choose the nature of the task to be performed (e.g., Python Programming, Business Email).</li>
+            <li><strong>Select Context:</strong> Pick a general setting for the task or describe your own context below.</li>
+            <li><strong>Select Role:</strong> Choose the role the LLM should take on. This becomes available after you choose a task type.</li>
+            <li><strong>Enter Custom Context (optional):</strong> You may provide a specific setting relevant to your use case.</li>
+            <li><strong>Describe the Task:</strong> The LLM's reply will strongly depend on the structure, clarity and level of detail of the task description.</li>
+            <li><strong>Expected Output:</strong> Explain the format or content you expect in the LLM's reply. Provide a template or example when at hand.</li>
+            <li><strong>Select Language:</strong> Choose the language for the final reply of the LLM.</li>
+            <li>Click <strong>Create Prompt</strong> to preview or <strong>Save Prompt</strong> to download it as a file.</li>
+        </ol>
+    </section>
+
     <form method="post">
 
-        <!-- Select Context -->
-        <label for="context">Select Context:</label>
-        <select name="context" id="context">
-            <option value="">--None--</option>
-            {% for key, value in contexts.items() %}
-            <!-- Display capitalized key in the dropdown -->
-            <option value="{{ key }}">{{ key.replace('_', ' ').title() }}</option>
-            {% endfor %}
-        </select><br><br>
-
         <!-- Select Task Type -->
-        <label for="task_type">Select Task Type:</label>
+        <label for="task_type"><strong>Select Task Type:</strong></label><br>
+        <small>Select the kind of task the LLM should perform. This determines available roles and styles.</small><br>
         <select name="task_type" id="task_type" onchange="this.form.submit(); enableRoleDropdown();">
             <option value="">--Select Task Type--</option>
             {% for key, value in task_types.items() %}
-            <!-- Display capitalized key instead of the full description -->
             <option value="{{ key }}" {% if request.form.get('task_type') == key %}selected{% endif %}>
                 {{ key.replace('_', ' ').title() }}
             </option>
             {% endfor %}
         </select><br><br>
 
-        <!-- Select Role -->
-        <label for="role">Select Role:</label>
-        <select name="role" id="role" {% if not roles %}disabled{% endif %}>
-            <option value="">--Select Role--</option>
-            {% for key, value in roles.items() %}
-            <!-- Similarly display capitalized key for roles, if desired -->
+        <!-- Select Context -->
+        <label for="context"><strong>Select Context:</strong></label><br>
+        <small>Select a general work environment or setting where the task should take place.</small><br>
+        <select name="context" id="context">
+            <option value="">--None--</option>
+            {% for key, value in contexts.items() %}
             <option value="{{ key }}">{{ key.replace('_', ' ').title() }}</option>
             {% endfor %}
         </select><br><br>
 
-        <!-- Or Enter Custom Context -->
-        <label for="context_custom">Or Enter Custom Context:</label>
-        <input type="text" id="context_custom" name="context_custom"><br><br>
+        <!-- Select Role -->
+        <label for="role"><strong>Select Role:</strong></label><br>
+        <small>Choose a professional role the model should adopt. Only available after selecting a task type.</small><br>
+        <select name="role" id="role" {% if not roles %}disabled{% endif %}>
+            <option value="">--Select Role--</option>
+            {% for key, value in roles.items() %}
+            <option value="{{ key }}">{{ key.replace('_', ' ').title() }}</option>
+            {% endfor %}
+        </select><br><br>
 
-        <!-- Describe the Task -->
-        <label for="task_description">Describe the Task:</label><br>
-        <textarea id="task_description" name="task_description" rows="4" cols="50"></textarea><br><br>
+        <!-- Custom Context -->
+        <label for="context_custom"><strong>Or Enter Custom Context:</strong></label><br>
+        <small>Optionally describe your own custom environment or scenario for the task.</small><br>
+        <input type="text" id="context_custom" name="context_custom" size="80"><br><br>
+
+        <!-- Task Description -->
+        <label for="task_description"><strong>Describe the Task:</strong></label><br>
+        <small>Write clearly what you want the LLM to do. Include key actions or questions it should address.</small><br>
+        <textarea id="task_description" name="task_description" rows="4" cols="80"></textarea><br><br>
 
         <!-- Expected Output -->
-        <label for="expected_output">Expected Output:</label><br>
-        <textarea id="expected_output" name="expected_output" rows="4" cols="50"></textarea><br><br>
+        <label for="expected_output"><strong>Expected Output:</strong></label><br>
+        <small>Describe what kind of response you expect — a summary, a script, a recommendation, etc.</small><br>
+        <textarea id="expected_output" name="expected_output" rows="4" cols="80"></textarea><br><br>
 
         <!-- Select Language -->
-        <label for="language">Select Language:</label>
+        <label for="language"><strong>Select Language:</strong></label><br>
+        <small>Select the language in which the LLM should respond.</small><br>
         <select name="language" id="language">
             <option value="English">English</option>
             <option value="German">German</option>
         </select><br><br>
 
         {% if roles %}
-        <!-- Hidden field to store the generated prompt -->
         {% if prompt and not prompt.startswith("Please select a valid role") %}
         <input type="hidden" name="prompt" value="{{ prompt | e }}">
         {% endif %}
-
-        <!-- Buttons: Create Prompt and Save Prompt -->
         <button type="submit" name="create_prompt">Create Prompt</button>
         <button type="submit" name="save_prompt">Save Prompt</button>
         {% endif %}
@@ -854,14 +875,11 @@ TEMPLATE = """
 
     {% if prompt %}
     <h2>Generated Prompt:</h2>
-    <!-- 
-         Use a <pre> tag with white-space: pre-wrap for line breaks
-         and text wrapping within the browser.
-    -->
     <pre style="white-space: pre-wrap;">{{ prompt }}</pre>
     {% endif %}
 </body>
 </html>
+
 """
 
 if __name__ == '__main__':
