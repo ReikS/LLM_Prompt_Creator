@@ -1,0 +1,695 @@
+# Programming Task Guideline Document
+
+## Introduction
+This document provides detailed guidelines and descriptions for programming-related tasks, contexts, and roles. It is intended to serve as a reference for generating prompts for large language models (LLMs) in programming tasks. The document is structured to first outline common guidelines applicable across all programming tasks, followed by specific guidelines for various roles, context-specific considerations, and language-specific practices.
+
+## Common Guidelines
+
+### Code Readability and Maintainability
+Professional programmers prioritize writing clean, readable, and maintainable code. This involves:
+- Using meaningful variable and function names.
+- Maintaining consistent indentation and formatting.
+- Organizing code into modular and reusable components.
+- Adhering to style guidelines specific to the programming language (e.g., PEP 8 for Python).
+
+### Comprehensive Documentation
+Thorough documentation is crucial for understanding and maintaining codebases. This includes:
+- Comprehensive program headers with metadata such as program name, description, author, creation date, and change tracker.
+- Docstrings for all functions and classes, explaining their purpose, parameters, and return values.
+- Inline comments to elucidate complex logic or important decisions within the code.
+
+### Robust Error Handling
+Effective error handling ensures that programs can gracefully manage unexpected situations. This involves:
+- Implementing robust error handling mechanisms to manage runtime issues.
+- Using try-except blocks (Python) or equivalent structures in other languages.
+- Providing meaningful error messages to aid in debugging.
+
+### Testing and Validation
+Comprehensive testing is essential for ensuring code reliability and facilitating maintenance. This includes:
+- Writing unit and integration tests to validate code functionality.
+- Implementing test-driven development (TDD) where applicable.
+- Ensuring tests are deterministic and cover edge cases.
+
+### Version Control
+Version control systems like Git are essential for effective code management and collaboration. Best practices include:
+- Using version control for tracking changes and collaborating with team members.
+- Maintaining a clear and descriptive commit history.
+- Using branches to manage features and bug fixes.
+
+### Collaboration and Communication
+Effective collaboration and communication are key to successful project outcomes. This involves:
+- Regular code reviews to ensure code quality and consistency.
+- Clear and timely communication with team members and stakeholders.
+- Using collaboration tools (e.g., Slack, Teams) and project management software.
+
+## Guidelines for Specific Roles
+
+### Code Assistant
+**Responsibilities:**
+- Provide guidance on code structure, readability, and maintainability.
+- Suggest best practices and design patterns.
+
+**Methods:**
+- Review code snippets and propose refactorings.
+- Demonstrate sample implementations.
+- Highlight library or framework choices.
+
+**Deliverables:**
+- Annotated code reviews.
+- Example scripts demonstrating proposed solutions.
+- Updated code repositories incorporating improvements.
+
+**Working Standards and Best Practices:**
+- Follow language-specific style guidelines (e.g., PEP 8 for Python).
+- Ensure inline comments explain non-obvious logic.
+- Maintain a robust test suite.
+- Use version control for tracking changes.
+
+### Debugger
+**Responsibilities:**
+- Identify and resolve bugs or unexpected behavior in code.
+
+**Methods:**
+- Use debugging tools (e.g., pdb for Python, IDE-based debuggers).
+- Set breakpoints, inspect variables, and analyze stack traces.
+- Employ systematic isolation to pinpoint root causes.
+
+**Deliverables:**
+- Debugged and tested code that resolves identified issues.
+- A brief diagnostic report or summary describing the issue and fix.
+
+**Working Standards and Best Practices:**
+- Maintain logs of debugging sessions.
+- Document root causes.
+- Update tests to prevent regressions.
+
+### Code Reviewer
+**Responsibilities:**
+- Evaluate code for correctness, performance, style compliance, and overall quality.
+
+**Methods:**
+- Conduct line-by-line reviews.
+- Examine code structure and validate adherence to coding standards.
+- Check for redundant logic, potential security gaps, and unclear documentation.
+
+**Deliverables:**
+- Structured review feedback.
+- Git pull request comments.
+- Suggested revisions and acceptance criteria for refactoring.
+
+**Working Standards and Best Practices:**
+- Emphasize clarity, maintainability, and proper testing.
+- Encourage docstrings on all classes/functions.
+- Use continuous integration for quality checks.
+
+### Documentation Writer
+**Responsibilities:**
+- Craft and maintain technical documentation for modules, classes, and functions.
+
+**Methods:**
+- Write docstrings following language-specific styles (e.g., reStructuredText or Google style for Python).
+- Produce user guides (e.g., Sphinx docs for Python).
+- Consolidate knowledge into wiki or README files.
+
+**Deliverables:**
+- Complete docstring coverage.
+- Structured user manuals or knowledge base articles.
+- Clear guidelines on installation, usage examples, and troubleshooting steps.
+
+**Working Standards and Best Practices:**
+- Maintain consistent style and formatting across all documentation.
+- Ensure version alignment between code and documentation.
+- Collect user feedback for continuous improvement.
+
+### Learning Tutor
+**Responsibilities:**
+- Instruct newcomers on syntax, data structures, control flow, and fundamental libraries.
+
+**Methods:**
+- Provide hands-on coding examples, exercises, quizzes, and real-world mini-projects.
+- Adapt teaching materials to varied skill levels.
+
+**Deliverables:**
+- Lesson plans.
+- Coding challenge sets.
+- Progress reports and customized feedback to help learners advance.
+
+**Working Standards and Best Practices:**
+- Promote best coding practices (e.g., PEP 8, docstrings for Python).
+- Encourage active learning through problem-solving.
+
+### Data Analyst
+**Responsibilities:**
+- Manipulate, clean, and analyze data using relevant libraries and tools.
+- Generate insights and data visualizations.
+
+**Methods:**
+- Implement feature engineering, statistical analysis, and exploratory data analysis.
+- Build notebooks or scripts for reproducible workflows.
+
+**Deliverables:**
+- Visual charts, summary reports, or dashboards.
+- Recommendations to business stakeholders.
+
+**Working Standards and Best Practices:**
+- Document assumptions.
+- Use version control for analysis scripts.
+- Ensure results are reproducible.
+- Respect data governance policies.
+
+## Context Specifics
+
+### Credit Risk Modelling
+**Responsibilities:**
+- Evaluate the probability of default (PD) and loss given default (LGD) for loans and credit portfolios.
+- Conduct thorough data gathering, cleaning, and analysis.
+
+**Methods:**
+- Utilize statistical models (e.g., logistic regression, decision trees) and advanced techniques like machine learning for predictive analysis.
+- Employ stress testing and scenario analysis to assess portfolio resilience under different economic conditions.
+
+**Deliverables:**
+- Risk reports with model outputs (PD, EAD, LGD).
+- Validation documentation and compliance materials aligned with regulations (e.g., Basel III).
+- Summaries for senior management detailing key risk indicators and recommended actions.
+
+**Working Standards and Best Practices:**
+- Maintain robust data governance, model validation procedures, and transparent documentation.
+- Collaborate closely with risk committees to ensure models reflect current regulations and organizational risk appetite.
+- Adhere to strict version control and testing protocols to maintain model integrity.
+
+### Data Analysis
+**Responsibilities:**
+- Collect, process, and examine datasets to derive actionable insights and support data-driven decisions.
+
+**Methods:**
+- Employ data cleaning, feature engineering, statistical methods (e.g., hypothesis testing, regression), and data visualization tools (e.g., matplotlib, seaborn for Python).
+
+**Deliverables:**
+- Analytical reports highlighting key findings.
+- Visual dashboards or charts (e.g., via Tableau or Power BI).
+- Recommendations on trends or anomalies.
+- Documentation of the analysis process and any code or scripts used.
+
+**Working Standards and Best Practices:**
+- Adhere to data privacy regulations (e.g., GDPR).
+- Version-control analysis scripts.
+- Ensure validity through peer review or QA checks.
+- Explain assumptions and limitations of the analysis to stakeholders.
+
+### Software Development
+**Responsibilities:**
+- Design, implement, and maintain software applications.
+- Work with stakeholders to clarify requirements and integrate features.
+
+**Methods:**
+- Follow a software development lifecycle (SDLC) model such as Agile or Waterfall.
+- Use continuous integration/continuous delivery (CI/CD), version control (Git), and code reviews.
+- Employ test-driven development (TDD) or behavior-driven development (BDD) where applicable.
+
+**Deliverables:**
+- Functional software modules or applications.
+- Technical documentation.
+- Unit and integration test results.
+- Deployment packages or containers (e.g., Docker images).
+
+**Working Standards and Best Practices:**
+- Maintain clean architecture.
+- Enforce consistent code style (e.g., PEP 8 for Python).
+- Document APIs or libraries thoroughly.
+- Plan regular refactoring.
+- Employ robust QA processes, including automated testing and peer reviews, to ensure code quality and maintainability.
+
+## Language Specifics
+
+### Python Programming
+
+Python emphasizes writing clean, readable, and efficient code by adhering to PEP 8 style guidelines. Modern features and best practices include using type hints, asynchronous programming with async/await, and data classes for structured data handling.
+
+**Modern Language Features:**
+- **Type Hints:** Enhance code readability and maintainability by indicating the expected types of variables and function return values. This feature helps catch type-related errors early with static type checkers like mypy.
+- **Async/Await:** Facilitates concurrent code for I/O-bound applications, making asynchronous programming more readable and maintainable.
+- **Data Classes:** Reduce boilerplate code for classes primarily used to store data.
+- **Context Managers:** Ensure proper resource management by automatically cleaning up resources after use.
+
+**Code Snippet for Best Practices:**
+```python
+from typing import Dict, Any
+import pandas as pd
+from dataclasses import dataclass
+
+@dataclass
+class DataPoint:
+    id: int
+    value: float
+
+def map_values(df: pd.DataFrame, mapping: Dict[str, Any]) -> pd.DataFrame:
+    """Map values in a DataFrame column using a dictionary mapping."""
+    df['new_column'] = df['existing_column'].map(mapping)
+    return df
+
+# Example usage
+df = pd.DataFrame({
+    'existing_column': ['a', 'b', 'c']
+})
+mapping_dict = {'a': 1, 'b': 2, 'c': 3}
+new_df = map_values(df, mapping_dict)
+print(new_df)
+```
+
+### SAS Programming
+
+SAS programming focuses on data manipulation, statistical analysis, and reporting. Modern SAS practices include using macros for reusable code blocks and leveraging DS2 programming for advanced data manipulation.
+
+**Modern Language Features:**
+- **SAS Macros:** Allow for reusable, modular code that can operate independently and handle dataframes as input and output.
+- **DS2 Programming:** Provides SQL-like capabilities and supports user-defined methods and packages for advanced data manipulation.
+- **PROC FCMP:** Allows for the creation of custom functions that enhance modularity and reusability in SAS programs.
+
+**Code Snippet for Best Practices:**
+```sas
+/* Using SAS Macro with Data Step */
+%macro process_data(input_ds, output_ds);
+    data &output_ds;
+        set &input_ds;
+        /* Example transformation */
+        if age > 30 then age_group = 'Above 30';
+        else if age <= 30 then age_group = '30 or Younger';
+    run;
+%mend process_data;
+
+/* Calling the macro */
+%process_data(input_ds=work.input_data, output_ds=work.output_data);
+```
+
+### R Programming
+
+R programming is widely used for statistical computing and graphics. Modern R programming leverages the tidyverse suite for data manipulation and visualization, emphasizing readability and efficiency.
+
+**Modern Language Features:**
+- **Tidyverse Suite:** Includes packages like dplyr for data manipulation and ggplot2 for visualization.
+- **Pipes (`%>%`):** Enhance readability by chaining operations in a clear and concise manner.
+- **Purrr for Functional Programming:** Facilitates applying functions over lists or vectors efficiently.
+
+**Code Snippet for Best Practices:**
+```r
+library(dplyr)
+library(purrr)
+
+# Example using pipes and functional programming
+data <- tibble(
+  id = 1:5,
+  value = c(10, 20, 30, 40, 50)
+)
+
+# Using dplyr and purrr for data manipulation
+result <- data %>%
+  mutate(new_value = map_dbl(value, ~ .x * 2)) %>%
+  filter(new_value > 40)
+
+print(result)
+```
+
+### SQL Programming
+
+SQL programming involves writing efficient queries for database management. Modern SQL features include Common Table Expressions (CTEs) for complex queries and window functions for advanced calculations.
+
+**Modern Language Features:**
+- **Common Table Expressions (CTEs):** Enhance readability and allow for complex queries by defining temporary result sets.
+- **Window Functions:** Enable calculations across sets of rows related to the current query row.
+- **JSON Support:** Modern SQL databases support JSON data types for flexible and semi-structured data storage.
+
+**Code Snippet for Best Practices:**
+```sql
+-- Using Common Table Expressions and Window Functions
+WITH SalesCTE AS (
+    SELECT
+        product_id,
+        sale_date,
+        amount,
+        SUM(amount) OVER (PARTITION BY product_id ORDER BY sale_date) AS running_total
+    FROM sales
+)
+SELECT
+    product_id,
+    sale_date,
+    amount,
+    running_total
+FROM SalesCTE
+WHERE amount > 100;
+```
+
+## Conclusion
+
+This document provides a comprehensive overview of programming-related tasks, contexts, and roles. It is intended to serve as a guideline for generating prompts for large language models (LLMs) in programming tasks. By following the described practices and guidelines, users can ensure that their prompts are well-structured and effective.
+
+
+
+Here is the updated and reviewed document with final corrections applied:
+
+---
+
+# Programming Task Guideline Document
+
+## Introduction
+This document provides detailed guidelines and descriptions for programming-related tasks, contexts, and roles. It is intended to serve as a reference for generating prompts for large language models (LLMs) in programming tasks. The document is structured to first outline common guidelines applicable across all programming tasks, followed by specific guidelines for various roles, context-specific considerations, and language-specific practices.
+
+## Common Guidelines
+
+### Code Readability and Maintainability
+Professional programmers prioritize writing clean, readable, and maintainable code. This involves:
+- Using meaningful variable and function names.
+- Maintaining consistent indentation and formatting.
+- Organizing code into modular and reusable components.
+- Adhering to style guidelines specific to the programming language (e.g., PEP 8 for Python).
+
+### Comprehensive Documentation
+Thorough documentation is crucial for understanding and maintaining codebases. This includes:
+- Comprehensive program headers with metadata such as program name, description, author, creation date, and change tracker.
+- Docstrings for all functions and classes, explaining their purpose, parameters, and return values.
+- Inline comments to elucidate complex logic or important decisions within the code.
+
+### Robust Error Handling
+Effective error handling ensures that programs can gracefully manage unexpected situations. This involves:
+- Implementing robust error handling mechanisms to manage runtime issues.
+- Using try-except blocks (Python) or equivalent structures in other languages.
+- Providing meaningful error messages to aid in debugging.
+
+### Testing and Validation
+Comprehensive testing is essential for ensuring code reliability and facilitating maintenance. This includes:
+- Writing unit and integration tests to validate code functionality.
+- Implementing test-driven development (TDD) where applicable.
+- Ensuring tests are deterministic and cover edge cases.
+
+### Version Control
+Version control systems like Git are essential for effective code management and collaboration. Best practices include:
+- Using version control for tracking changes and collaborating with team members.
+- Maintaining a clear and descriptive commit history.
+- Using branches to manage features and bug fixes.
+
+### Collaboration and Communication
+Effective collaboration and communication are key to successful project outcomes. This involves:
+- Regular code reviews to ensure code quality and consistency.
+- Clear and timely communication with team members and stakeholders.
+- Using collaboration tools (e.g., Slack, Teams) and project management software.
+
+## Guidelines for Specific Roles
+
+### Code Assistant
+**Responsibilities:**
+- Provide guidance on code structure, readability, and maintainability.
+- Suggest best practices and design patterns.
+
+**Methods:**
+- Review code snippets and propose refactorings.
+- Demonstrate sample implementations.
+- Highlight library or framework choices.
+
+**Deliverables:**
+- Annotated code reviews.
+- Example scripts demonstrating proposed solutions.
+- Updated code repositories incorporating improvements.
+
+**Working Standards and Best Practices:**
+- Follow language-specific style guidelines (e.g., PEP 8 for Python).
+- Ensure inline comments explain non-obvious logic.
+- Maintain a robust test suite.
+- Use version control for tracking changes.
+
+### Debugger
+**Responsibilities:**
+- Identify and resolve bugs or unexpected behavior in code.
+
+**Methods:**
+- Use debugging tools (e.g., pdb for Python, IDE-based debuggers).
+- Set breakpoints, inspect variables, and analyze stack traces.
+- Employ systematic isolation to pinpoint root causes.
+
+**Deliverables:**
+- Debugged and tested code that resolves identified issues.
+- A brief diagnostic report or summary describing the issue and fix.
+
+**Working Standards and Best Practices:**
+- Maintain logs of debugging sessions.
+- Document root causes.
+- Update tests to prevent regressions.
+
+### Code Reviewer
+**Responsibilities:**
+- Evaluate code for correctness, performance, style compliance, and overall quality.
+
+**Methods:**
+- Conduct line-by-line reviews.
+- Examine code structure and validate adherence to coding standards.
+- Check for redundant logic, potential security gaps, and unclear documentation.
+
+**Deliverables:**
+- Structured review feedback.
+- Git pull request comments.
+- Suggested revisions and acceptance criteria for refactoring.
+
+**Working Standards and Best Practices:**
+- Emphasize clarity, maintainability, and proper testing.
+- Encourage docstrings on all classes/functions.
+- Use continuous integration for quality checks.
+
+### Documentation Writer
+**Responsibilities:**
+- Craft and maintain technical documentation for modules, classes, and functions.
+
+**Methods:**
+- Write docstrings following language-specific styles (e.g., reStructuredText or Google style for Python).
+- Produce user guides (e.g., Sphinx docs for Python).
+- Consolidate knowledge into wiki or README files.
+
+**Deliverables:**
+- Complete docstring coverage.
+- Structured user manuals or knowledge base articles.
+- Clear guidelines on installation, usage examples, and troubleshooting steps.
+
+**Working Standards and Best Practices:**
+- Maintain consistent style and formatting across all documentation.
+- Ensure version alignment between code and documentation.
+- Collect user feedback for continuous improvement.
+
+### Learning Tutor
+**Responsibilities:**
+- Instruct newcomers on syntax, data structures, control flow, and fundamental libraries.
+
+**Methods:**
+- Provide hands-on coding examples, exercises, quizzes, and real-world mini-projects.
+- Adapt teaching materials to varied skill levels.
+
+**Deliverables:**
+- Lesson plans.
+- Coding challenge sets.
+- Progress reports and customized feedback to help learners advance.
+
+**Working Standards and Best Practices:**
+- Promote best coding practices (e.g., PEP 8, docstrings for Python).
+- Encourage active learning through problem-solving.
+
+### Data Analyst
+**Responsibilities:**
+- Manipulate, clean, and analyze data using relevant libraries and tools.
+- Generate insights and data visualizations.
+
+**Methods:**
+- Implement feature engineering, statistical analysis, and exploratory data analysis.
+- Build notebooks or scripts for reproducible workflows.
+
+**Deliverables:**
+- Visual charts, summary reports, or dashboards.
+- Recommendations to business stakeholders.
+
+**Working Standards and Best Practices:**
+- Document assumptions.
+- Use version control for analysis scripts.
+- Ensure results are reproducible.
+- Respect data governance policies.
+
+## Context Specifics
+
+### Credit Risk Modelling
+**Responsibilities:**
+- Evaluate the probability of default (PD) and loss given default (LGD) for loans and credit portfolios.
+- Conduct thorough data gathering, cleaning, and analysis.
+
+**Methods:**
+- Utilize statistical models (e.g., logistic regression, decision trees) and advanced techniques like machine learning for predictive analysis.
+- Employ stress testing and scenario analysis to assess portfolio resilience under different economic conditions.
+
+**Deliverables:**
+- Risk reports with model outputs (PD, EAD, LGD).
+- Validation documentation and compliance materials aligned with regulations (e.g., Basel III).
+- Summaries for senior management detailing key risk indicators and recommended actions.
+
+**Working Standards and Best Practices:**
+- Maintain robust data governance, model validation procedures, and transparent documentation.
+- Collaborate closely with risk committees to ensure models reflect current regulations and organizational risk appetite.
+- Adhere to strict version control and testing protocols to maintain model integrity.
+
+### Data Analysis
+**Responsibilities:**
+- Collect, process, and examine datasets to derive actionable insights and support data-driven decisions.
+
+**Methods:**
+- Employ data cleaning, feature engineering, statistical methods (e.g., hypothesis testing, regression), and data visualization tools (e.g., matplotlib, seaborn for Python).
+
+**Deliverables:**
+- Analytical reports highlighting key findings.
+- Visual dashboards or charts (e.g., via Tableau or Power BI).
+- Recommendations on trends or anomalies.
+- Documentation of the analysis process and any code or scripts used.
+
+**Working Standards and Best Practices:**
+- Adhere to data privacy regulations (e.g., GDPR).
+- Version-control analysis scripts.
+- Ensure validity through peer review or QA checks.
+- Explain assumptions and limitations of the analysis to stakeholders.
+
+### Software Development
+**Responsibilities:**
+- Design, implement, and maintain software applications.
+- Work with stakeholders to clarify requirements and integrate features.
+
+**Methods:**
+- Follow a software development lifecycle (SDLC) model such as Agile or Waterfall.
+- Use continuous integration/continuous delivery (CI/CD), version control (Git), and code reviews.
+- Employ test-driven development (TDD) or behavior-driven development (BDD) where applicable.
+
+**Deliverables:**
+- Functional software modules or applications.
+- Technical documentation.
+- Unit and integration test results.
+- Deployment packages or containers (e.g., Docker images).
+
+**Working Standards and Best Practices:**
+- Maintain clean architecture.
+- Enforce consistent code style (e.g., PEP 8 for Python).
+- Document APIs or libraries thoroughly.
+- Plan regular refactoring.
+- Employ robust QA processes, including automated testing and peer reviews, to ensure code quality and maintainability.
+
+## Language Specifics
+
+### Python Programming
+
+Python programming emphasizes writing clean, readable, and efficient code by adhering to PEP 8 style guidelines. Modern features and best practices in Python include using type hints, asynchronous programming with async/await, and data classes for structured data handling.
+
+**Modern Language Features:**
+- **Type Hints:** Enhance code readability and maintainability by indicating the expected types of variables and function return values. This feature helps catch type-related errors early with static type checkers like mypy.
+- **Async/Await:** Facilitates concurrent code for I/O-bound applications, making asynchronous programming more readable and maintainable.
+- **Data Classes:** Reduce boilerplate code for classes primarily used to store data.
+- **Context Managers:** Ensure proper resource management by automatically cleaning up resources after use.
+
+**Code Snippet for Best Practices:**
+```python
+from typing import Dict, Any
+import pandas as pd
+from dataclasses import dataclass
+
+@dataclass
+class DataPoint:
+    id: int
+    value: float
+
+def map_values(df: pd.DataFrame, mapping: Dict[str, Any]) -> pd.DataFrame:
+    """Map values in a DataFrame column using a dictionary mapping."""
+    df['new_column'] = df['existing_column'].map(mapping)
+    return df
+
+# Example usage
+df = pd.DataFrame({
+    'existing_column': ['a', 'b', 'c']
+})
+mapping_dict = {'a': 1, 'b': 2, 'c': 3}
+new_df = map_values(df, mapping_dict)
+print(new_df)
+```
+
+### SAS Programming
+
+SAS programming focuses on data manipulation, statistical analysis, and reporting. Modern SAS practices include using macros for reusable code blocks and leveraging DS2 programming for advanced data manipulation.
+
+**Modern Language Features:**
+- **SAS Macros:** Allow for reusable, modular code that can operate independently and handle dataframes as input and output.
+- **DS2 Programming:** Provides SQL-like capabilities and supports user-defined methods and packages for advanced data manipulation.
+- **PROC FCMP:** Allows for the creation of custom functions that enhance modularity and reusability in SAS programs.
+
+**Code Snippet for Best Practices:**
+```sas
+/* Using SAS Macro with Data Step */
+%macro process_data(input_ds, output_ds);
+    data &output_ds;
+        set &input_ds;
+        /* Example transformation */
+        if age > 30 then age_group = 'Above 30';
+        else if age <= 30 then age_group = '30 or Younger';
+    run;
+%mend process_data;
+
+/* Calling the macro */
+%process_data(input_ds=work.input_data, output_ds=work.output_data);
+```
+
+### R Programming
+
+R programming is widely used for statistical computing and graphics. Modern R programming leverages the tidyverse suite for data manipulation and visualization, emphasizing readability and efficiency.
+
+**Modern Language Features:**
+- **Tidyverse Suite:** Includes packages like dplyr for data manipulation and ggplot2 for visualization.
+- **Pipes (`%>%`):** Enhance readability by chaining operations in a clear and concise manner.
+- **Purrr for Functional Programming:** Facilitates applying functions over lists or vectors efficiently.
+
+**Code Snippet for Best Practices:**
+```r
+library(dplyr)
+library(purrr)
+
+# Example using pipes and functional programming
+data <- tibble(
+  id = 1:5,
+  value = c(10, 20, 30, 40, 50)
+)
+
+# Using dplyr and purrr for data manipulation
+result <- data %>%
+  mutate(new_value = map_dbl(value, ~ .x * 2)) %>%
+  filter(new_value > 40)
+
+print(result)
+```
+
+### SQL Programming
+
+SQL programming involves writing efficient queries for database management. Modern SQL features include Common Table Expressions (CTEs) for complex queries and window functions for advanced calculations.
+
+**Modern Language Features:**
+- **Common Table Expressions (CTEs):** Enhance readability and allow for complex queries by defining temporary result sets.
+- **Window Functions:** Enable calculations across sets of rows related to the current query row.
+- **JSON Support:** Modern SQL databases support JSON data types for flexible and semi-structured data storage.
+
+**Code Snippet for Best Practices:**
+```sql
+-- Using Common Table Expressions and Window Functions
+WITH SalesCTE AS (
+    SELECT
+        product_id,
+        sale_date,
+        amount,
+        SUM(amount) OVER (PARTITION BY product_id ORDER BY sale_date) AS running_total
+    FROM sales
+)
+SELECT
+    product_id,
+    sale_date,
+    amount,
+    running_total
+FROM SalesCTE
+WHERE amount > 100;
+```
+
+## Conclusion
+
+This document provides a comprehensive overview of programming-related tasks, contexts, and roles. It is intended to serve as a guideline for generating prompts for large language models (LLMs) in programming tasks. By following the described practices and guidelines, users can ensure that their prompts are well-structured and effective.
